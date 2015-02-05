@@ -12,7 +12,7 @@
 	</tr>
 	<% @cart.sellables.each do |item| %>
 	<tr>
-		<td><%= item[:sellable].description %></td>
+		<td><%= item[:sellable].item_type.singularize.classify.constantize.find(item[:sellable].item_id).name %></td>
 		<td><%= number_to_currency item[:sellable].price %></td>
 		<td>
 			<% if page == "cart" -%>
